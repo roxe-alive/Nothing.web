@@ -1,0 +1,70 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: #000;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* Container */
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Canvas behind content */
+.particles-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Center text */
+.center-text {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 900; /* HEAVY bold */
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #ffffff;
+
+  /* Horror glow */
+  text-shadow:
+    0 0 12px rgba(255, 255, 255, 0.7),
+    0 0 32px rgba(255, 255, 255, 0.6),
+    0 0 60px rgba(255, 255, 255, 0.4),
+    2px 2px 1px rgba(0, 0, 0, 0.9);
+}
+
+/* Keep your flicker animation */
+.center-text span {
+  animation: flicker 3s infinite steps(1);
+}
+
+@keyframes flicker {
+  0%, 97%, 100% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 0.4;
+  }
+  95% {
+    opacity: 0.6;
+  }
+}
